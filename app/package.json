@@ -6,17 +6,21 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "eslint . --quiet",
-    "test:unit": "jest"
+    "test:unit": "jest",
+    "test:flow": "flow"
   },
   "dependencies": {
     "react": "16.0.0",
     "react-native": "0.51.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-jest": "21.2.0",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react-native": "4.0.0",
     "eslint": "^4.13.0",
     "eslint-config-universe": "^1.0.6",
+    "flow-bin": "^0.57.0",
     "jest": "21.2.1",
     "prettier": "^1.9.1",
     "react-test-renderer": "16.0.0"
@@ -24,7 +28,8 @@
   "jest": {
     "preset": "react-native",
     "moduleNameMapper": {
-      "^[./a-zA-Z0-9$_-]+\\.(jpg|png|gif|eot|svg|ttf|woff|woff2|mp4|webm)$": "<rootDir>/jest/FileStub.js"
+      "^[./a-zA-Z0-9$_-]+\\.(jpg|png|gif|eot|svg|ttf|woff|woff2|mp4|webm)$":
+        "<rootDir>/jest/FileStub.js"
     }
   }
 }
