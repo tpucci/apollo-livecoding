@@ -10,7 +10,13 @@
     "test:flow": "flow"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.1.4",
+    "apollo-client": "^2.0.4",
+    "apollo-link-http": "^1.3.1",
+    "graphql": "^0.11.7",
+    "graphql-tag": "^2.6.0",
     "react": "16.0.0",
+    "react-apollo": "^2.0.4",
     "react-native": "0.51.0"
   },
   "devDependencies": {
@@ -28,8 +34,7 @@
   "jest": {
     "preset": "react-native",
     "moduleNameMapper": {
-      "^[./a-zA-Z0-9$_-]+\\.(jpg|png|gif|eot|svg|ttf|woff|woff2|mp4|webm)$":
-        "<rootDir>/jest/FileStub.js"
+      "^[./a-zA-Z0-9$_-]+\\.(jpg|png|gif|eot|svg|ttf|woff|woff2|mp4|webm)$": "<rootDir>/jest/FileStub.js"
     }
   }
 }
