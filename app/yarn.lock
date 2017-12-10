@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@bam.tech/react-native-graphql-transformer@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@bam.tech/react-native-graphql-transformer/-/react-native-graphql-transformer-0.0.1.tgz#f172c3a84f2d9a764cb36e7d0ec68ed59405c703"
+  dependencies:
+    graphql-tag "^2.6.0"
+
 "@types/async@2.0.45":
   version "2.0.45"
   resolved "https://registry.yarnpkg.com/@types/async/-/async-2.0.45.tgz#0cfe971d7ed5542695740338e0455c91078a0e83"

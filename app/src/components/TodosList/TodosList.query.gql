@@ -1,0 +1,6 @@
+query TodosList {
+  allTodoes {
+    id
+    text
+  }
+}

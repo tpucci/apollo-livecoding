@@ -20,6 +20,7 @@
     "react-native": "0.51.0"
   },
   "devDependencies": {
+    "@bam.tech/react-native-graphql-transformer": "^0.0.1",
     "babel-cli": "^6.26.0",
     "babel-jest": "21.2.0",
     "babel-preset-flow": "^6.23.0",

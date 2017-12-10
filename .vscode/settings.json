@@ -2,5 +2,7 @@
   "javascript.validate.enable": false,
   "flow.useNPMPackagedFlow": true,
   "editor.minimap.enabled": false,
-  "diffEditor.renderSideBySide": false
+  "diffEditor.renderSideBySide": false,
+  "prettier.printWidth": 30,
+  "eslint.autoFixOnSave": true
 }
