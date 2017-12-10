@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start":
+      "node node_modules/react-native/local-cli/cli.js start",
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "eslint . --quiet",
     "test:unit": "jest",
@@ -17,12 +18,14 @@
     "graphql-tag": "^2.6.0",
     "react": "16.0.0",
     "react-apollo": "^2.0.4",
-    "react-native": "0.51.0"
+    "react-native": "0.51.0",
+    "recompose": "^0.26.0"
   },
   "devDependencies": {
     "@bam.tech/react-native-graphql-transformer": "^0.0.1",
     "babel-cli": "^6.26.0",
     "babel-jest": "21.2.0",
+    "babel-plugin-module-resolver": "^3.0.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react-native": "4.0.0",
     "eslint": "^4.13.0",
@@ -35,7 +38,8 @@
   "jest": {
     "preset": "react-native",
     "moduleNameMapper": {
-      "^[./a-zA-Z0-9$_-]+\\.(jpg|png|gif|eot|svg|ttf|woff|woff2|mp4|webm)$": "<rootDir>/jest/FileStub.js"
+      "^[./a-zA-Z0-9$_-]+\\.(jpg|png|gif|eot|svg|ttf|woff|woff2|mp4|webm)$":
+        "<rootDir>/jest/FileStub.js"
     }
   }
 }

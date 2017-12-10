@@ -7,6 +7,9 @@ import {
   Text,
 } from 'react-native';
 
+// Molecules
+import TodoListItem from './molecules/TodoListItem';
+
 type PropsType = {
   todos: any,
   loading: boolean,
@@ -15,7 +18,9 @@ type PropsType = {
 
 class TodosList extends PureComponent<PropsType> {
   todoKeyExtractor = item => item.id;
-  renderTodo = ({ item: { text } }) => <Text>{text}</Text>;
+  renderTodo = ({ item: { id } }) => (
+    <TodoListItem id={id} />
+  );
   render() {
     if (this.props.loading) return <ActivityIndicator />;
     if (this.props.error) return <Text>Oopsie</Text>;
@@ -36,7 +41,7 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'stretch',
   },
 });
 
