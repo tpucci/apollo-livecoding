@@ -1,0 +1,6 @@
+{
+  "generator-rn-toolbox": {
+    "lint": true,
+    "jest": true
+  }
+}
