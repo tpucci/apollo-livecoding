@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 type PropsType = {
+  onCompleteChange: (value: boolean) => void,
   todo: any,
 };
 
@@ -19,8 +20,15 @@ class TodoListItem extends PureComponent<PropsType> {
         <Switch
           style={styles.switch}
           value={todo.complete}
+          onValueChange={this.props.onCompleteChange}
         />
-        <Text>{todo.text}</Text>
+        <Text
+          style={[
+            todo.complete && styles.textTodoCompleted,
+          ]}
+        >
+          {todo.text}
+        </Text>
       </View>
     );
   }
@@ -36,6 +44,11 @@ const styles = StyleSheet.create({
   },
   switch: {
     marginRight: 16,
+  },
+  textTodoCompleted: {
+    textDecorationLine: 'line-through',
+    fontStyle: 'italic',
+    color: '#555',
   },
 });
 
