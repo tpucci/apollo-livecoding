@@ -5,10 +5,12 @@ import {
   FlatList,
   StyleSheet,
   Text,
+  View,
 } from 'react-native';
 
 // Molecules
 import TodoListItem from './molecules/TodoListItem';
+import TodoAddInput from './molecules/TodoAddInput';
 
 type PropsType = {
   todos: any,
@@ -27,21 +29,27 @@ class TodosList extends PureComponent<PropsType> {
     if (!this.props.todos || !this.props.todos.length)
       return <Text>Nothing to show</Text>;
     return (
-      <FlatList
-        contentContainerStyle={styles.wrapper}
-        data={this.props.todos}
-        keyExtractor={this.todoKeyExtractor}
-        renderItem={this.renderTodo}
-      />
+      <View style={styles.wrapper}>
+        <TodoAddInput />
+        <FlatList
+          contentContainerStyle={styles.flatListContainer}
+          data={this.props.todos}
+          keyExtractor={this.todoKeyExtractor}
+          renderItem={this.renderTodo}
+        />
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1,
+    flex: 0,
     justifyContent: 'center',
     alignItems: 'stretch',
+  },
+  flatListContainer: {
+    flex: 0,
   },
 });
 

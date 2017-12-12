@@ -1,19 +1,25 @@
-import { compose, mapProps } from 'recompose';
-import { withApollo, graphql } from 'react-apollo';
+import { compose } from 'recompose';
+import { graphql } from 'react-apollo';
+import { remove } from 'lodash';
 
-import fragment from 'fragments/BaseTodo.gql';
+import TodosListQuery from '../../TodosList.query.gql';
+import TodoListItemQuery from './TodoListItem.query.gql';
 import ToggleTodoMutation from './ToggleTodo.mutation.gql';
+import DeleteTodoMutation from './DeleteTodo.mutation.gql';
 import TodoListItem from './TodoListItem.component';
 
 export default compose(
-  withApollo,
-  mapProps(({ client, id }) => ({
-    id,
-    todo: client.readFragment({
-      id,
-      fragment,
+  graphql(TodoListItemQuery, {
+    props: ({ data: { Todo, loading, error } }) => ({
+      loading,
+      error,
+      todo: Todo,
     }),
-  })),
+    options: ({ id }) => ({
+      variables: { id },
+      fetchPolicy: 'cache-only',
+    }),
+  }),
   graphql(ToggleTodoMutation, {
     props: ({ mutate, ownProps: { id, todo } }) => ({
       onCompleteChange: complete =>
@@ -27,14 +33,31 @@ export default compose(
               complete,
             },
           },
-          /*update: (proxy, { data: { updateTodo } }) => {
-            console.log('updating');
-            proxy.writeFragment({
+        }),
+    }),
+  }),
+  graphql(DeleteTodoMutation, {
+    props: ({ mutate, ownProps: { id } }) => ({
+      deleteTodo: () =>
+        mutate({
+          variables: { id },
+          optimisticResponse: {
+            __typename: 'Mutation',
+            deleteTodo: {
+              __typename: 'Todo',
               id,
-              fragment,
-              data: { ...todo, ...updateTodo },
+            },
+          },
+          update: (store, { data: { deleteTodo } }) => {
+            const data = store.readQuery({
+              query: TodosListQuery,
             });
-          },*/
+            remove(data.allTodoes, todo => todo.id === id);
+            store.writeQuery({
+              query: TodosListQuery,
+              data,
+            });
+          },
         }),
     }),
   })
