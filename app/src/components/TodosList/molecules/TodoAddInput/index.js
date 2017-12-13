@@ -1,1 +1,1 @@
-export { default } from './TodoAddInput.container';
+export { default } from './TodoAddInput.component';

@@ -1,5 +1,0 @@
-fragment BaseTodo on Todo {
-  id
-  text
-  complete
-}

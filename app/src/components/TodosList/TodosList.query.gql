@@ -1,7 +1,0 @@
-#import "fragments/BaseTodo.gql"
-
-query TodosList {
-  allTodoes {
-    ...BaseTodo
-  }
-}

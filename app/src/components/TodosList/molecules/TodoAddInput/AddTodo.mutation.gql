@@ -1,7 +1,0 @@
-#import "fragments/BaseTodo.gql"
-
-mutation AddTodo($text: String) {
-  createTodo(text: $text) {
-    ...BaseTodo
-  }
-}
