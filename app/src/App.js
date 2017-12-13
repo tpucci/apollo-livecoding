@@ -12,7 +12,7 @@ import TodosList from './components/TodosList';
 const cache = new InMemoryCache({
   dataIdFromObject: o => o.id,
   cacheResolvers: {
-    Query: {
+    /*Query: {
       Todo: (_, args) =>
         toIdValue(
           cache.config.dataIdFromObject({
@@ -20,7 +20,7 @@ const cache = new InMemoryCache({
             id: args.id,
           })
         ),
-    },
+    },*/
   },
 });
 
@@ -38,7 +38,22 @@ function App(props: PropsType) {
   return (
     <ApolloProvider client={client}>
       <View style={styles.wrapper}>
-        <TodosList />
+        <TodosList
+          todos={[
+            {
+              id: 1,
+              text: 'Task A',
+            },
+            {
+              id: 2,
+              text: 'Task B',
+            },
+            {
+              id: 3,
+              text: 'Task C',
+            },
+          ]}
+        />
       </View>
     </ApolloProvider>
   );

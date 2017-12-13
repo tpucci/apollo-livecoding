@@ -1,7 +1,0 @@
-#import "fragments/BaseTodo.gql"
-
-query TodoListItem($id: ID!) {
-  Todo(id: $id) {
-    ...BaseTodo
-  }
-}

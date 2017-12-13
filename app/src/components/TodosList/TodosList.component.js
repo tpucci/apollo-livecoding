@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 
 // Molecules
-import TodoListItem from './molecules/TodoListItem';
-import TodoAddInput from './molecules/TodoAddInput';
+// import TodoListItem from './molecules/TodoListItem';
+// import TodoAddInput from './molecules/TodoAddInput';
 
 type PropsType = {
   todos: any,
@@ -20,17 +20,14 @@ type PropsType = {
 
 class TodosList extends PureComponent<PropsType> {
   todoKeyExtractor = item => item.id;
-  renderTodo = ({ item: { id } }) => (
-    <TodoListItem id={id} />
-  );
+  renderTodo = ({ item: { text } }) => <Text>{text}</Text>;
   render() {
     if (this.props.loading) return <ActivityIndicator />;
     if (this.props.error) return <Text>Oopsie</Text>;
     if (!this.props.todos || !this.props.todos.length)
-      return <TodoAddInput />;
+      return <Text>Nothing to show</Text>;
     return (
       <View style={styles.wrapper}>
-        <TodoAddInput />
         <FlatList
           contentContainerStyle={styles.flatListContainer}
           data={this.props.todos}
