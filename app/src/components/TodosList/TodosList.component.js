@@ -27,7 +27,7 @@ class TodosList extends PureComponent<PropsType> {
     if (this.props.loading) return <ActivityIndicator />;
     if (this.props.error) return <Text>Oopsie</Text>;
     if (!this.props.todos || !this.props.todos.length)
-      return <Text>Nothing to show</Text>;
+      return <TodoAddInput />;
     return (
       <View style={styles.wrapper}>
         <TodoAddInput />
