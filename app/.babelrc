@@ -1,3 +1,17 @@
 {
-  "presets": ["react-native", "flow"]
+  "presets": ["react-native", "flow"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "extensions": [
+          ".js",
+          ".ios.js",
+          ".android.js",
+          ".gql"
+        ]
+      }
+    ]
+  ]
 }
